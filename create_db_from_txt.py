@@ -182,9 +182,11 @@ def create_db_from_txt(txt_file, db_file):
                 gi_id INTEGER PRIMARY KEY,
                 FilingCompany TEXT,
                 SERFFFilingEntityEventKey INT,
+                SERFFTrackingNumber TEXT,
                 TypeOfInsurance TEXT,
                 SubTypeOfInsurance TEXT,
-                FilingStatus TEXT
+                FilingStatus TEXT,
+                DocumentKey INT
                 )
         '''
 
@@ -192,12 +194,14 @@ def create_db_from_txt(txt_file, db_file):
             INSERT INTO GeneralInformation (
                 FilingCompany,
                 SERFFFilingEntityEventKey,
+                SERFFTrackingNumber,
                 TypeOfInsurance,
                 SubTypeOfInsurance,
-                FilingStatus) VALUES (?,?,?,?,?)
+                FilingStatus,
+                DocumentKey) VALUES (?,?,?,?,?,?,?)
         '''
 
-        values_list = [1,2,7,9,21]
+        values_list = [1,2,4,7,9,21,39]
 
     if 'RateFilingsCompanyInformation' in txt_file:
 
